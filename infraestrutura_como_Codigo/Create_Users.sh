@@ -11,17 +11,17 @@ groupadd GRP_ADM
 groupadd GRP_VEN
 groupadd GRP_SEC
 
-useradd Carlos -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -G GRP_ADM
-useradd Maria -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -G GRP_ADM
-useradd Joao -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -G GRP_ADM
+useradd Carlos -m -s /bin/bash -p $(openssl passwd -1 Senha123) -G GRP_ADM
+useradd Maria -m -s /bin/bash -p $(openssl passwd -1 Senha123) -G GRP_ADM
+useradd Joao -m -s /bin/bash -p $(openssl passwd -1 Senha123) -G GRP_ADM
 
-useradd Debora -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -G GRP_VEN
-useradd Sebastiana -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -G GRP_VEN
-useradd Roberto -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -G GRP_VEN
+useradd Debora -m -s /bin/bash -p $(openssl passwd -1 Senha123) -G GRP_VEN
+useradd Sebastiana -m -s /bin/bash -p $(openssl passwd -1 Senha123) -G GRP_VEN
+useradd Roberto -m -s /bin/bash -p $(openssl passwd -1 Senha123) -G GRP_VEN
 
-useradd Josefina -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -G GRP_SEC
-useradd Amanda -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -G GRP_SEC
-useradd Rogerio -m -s /bin/bash -p $(openssl passwd -crypt Senha123) -G GRP_SEC
+useradd Josefina -m -s /bin/bash -p $(openssl passwd -1 Senha123) -G GRP_SEC
+useradd Amanda -m -s /bin/bash -p $(openssl passwd -1 Senha123) -G GRP_SEC
+useradd Rogerio -m -s /bin/bash -p $(openssl passwd -1 Senha123) -G GRP_SEC
 
 chown root:GRP_ADM /adm/
 
@@ -38,3 +38,5 @@ echo "Fim do script."
 echo "Não esquecer de permitir a eecução do arquivo: chmod +x Create_Users.sh"
 echo "Apos permitir a execução: ./Create_Users.sh"
 echo "Salvar estado da sua maquina antes da execução deste script é uma boa pratica!!!"
+echo "Use a criptografia MD5, sha256 ou sha512 com os parâmetros -1, -5 ou -6 respectivamente. O comando -crypt não está mais sendo utilizado no openssl
+https://www.openssl.org/docs/man3.0/man1/openssl-passwd.html"
